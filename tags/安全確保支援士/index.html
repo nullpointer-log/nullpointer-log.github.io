@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>安全確保支援士 | nullpointer-log</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://nullpointer-log.github.io/tags/%E5%AE%89%E5%85%A8%E7%A2%BA%E4%BF%9D%E6%94%AF%E6%8F%B4%E5%A3%AB/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nullpointer-log.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nullpointer-log.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nullpointer-log.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nullpointer-log.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nullpointer-log.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://nullpointer-log.github.io/tags/%E5%AE%89%E5%85%A8%E7%A2%BA%E4%BF%9D%E6%94%AF%E6%8F%B4%E5%A3%AB/index.xml">
+<link rel="alternate" hreflang="ja" href="https://nullpointer-log.github.io/tags/%E5%AE%89%E5%85%A8%E7%A2%BA%E4%BF%9D%E6%94%AF%E6%8F%B4%E5%A3%AB/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><script async defer data-domain="nullpointer-log.github.io"
+        src="https://plausible.io/js/plausible.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true });</script><meta property="og:url" content="https://nullpointer-log.github.io/tags/%E5%AE%89%E5%85%A8%E7%A2%BA%E4%BF%9D%E6%94%AF%E6%8F%B4%E5%A3%AB/">
+  <meta property="og:site_name" content="nullpointer-log">
+  <meta property="og:title" content="安全確保支援士">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安全確保支援士">
+<meta name="twitter:description" content="">
+
+</head>
+
+<body class="list" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nullpointer-log.github.io/" accesskey="h" title="nullpointer-log (Alt + H)">nullpointer-log</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://nullpointer-log.github.io/">ホーム</a>&nbsp;»&nbsp;<a href="https://nullpointer-log.github.io/tags/">Tags</a></div>
+  <h1>
+    安全確保支援士
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>📝試験当日の所感（午前Ⅱ） 自己採点の結果は18/25でした（正解率72%）。 前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。 しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。
+前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。
+印象に残った問題と気づき 特に、間違った問題や、分からなかった問題について、記載します。
+問3 SHA-512/256の説明はどれか。 正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」
+SHA-512/256は完全に初見でした。過去にも出題歴がないようです。 SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。 （SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）
+SHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。 暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。
+FIPS PUB 180-4（SHA-512/256の定義）
+問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。 正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」
+試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。 ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。
+問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。 正解： ウ「GOVERN」
+意味は「統治」。この問題も初出のようです。 CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。
+Governが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。
+NIST CSF 2.0 公式サイト
+問13 IoC(Indicator of Compromise)に該当するものはどれか。 正解： ウ「あるネットワーク機器のログに残されたC&amp;Cサーバとの通信履歴」
+Indicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。 「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。
+問19 スパニングツリープロトコルの機能を説明したものはどれか。 正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」
+スパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。 平成27年秋にもほぼ同一の問題が出ており、重要項目です。
+この問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。
+問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。 正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」
+私はGETメソッドの仕組みを誤解していました。 リクエスト行は以下の3要素で構成されます：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-24 00:00:00 +0000 UTC'>4月 24, 2025</span>&nbsp;·&nbsp;1 分</footer>
+  <a class="entry-link" aria-label="post link to 令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり" href="https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">はじめまして。中高年からの技術挑戦と資格学習ログを始めます
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>資格試験の勉強を続けていると、どうしてもモチベーションが落ちる時期があります。
+このブログは、そんな自分を奮い立たせるため、そして同じように資格試験に挑戦している方の励みになればと思い、立ち上げました。
+「せっかく努力しているなら、その過程を発信してみたい」――そんな思いも込めています。
+私は長年、組み込み系のソフトウェアエンジニアとして働いてきました。
+技術に向き合うのは好きでしたが、大きな成果を出せた実感はなく、管理職試験にも通らず、与えられた仕事をこなす日々が続きました。
+年齢を重ねるにつれ、「出世もできない」「自信も持てない」と感じることが増えていきました。
+そんな中で気づいたのが、「自分には伝える力、つまり文章力が足りないのではないか」ということです。
+それを克服する手段として選んだのが、高度情報処理技術者試験への挑戦でした。
+努力は続けてきましたが、どの試験もあと一歩のところでつまずき、特に午後Ⅱでの不合格が続いています。
+さらにコロナ禍でリモートワークが増えたことで、仕事へのモチベーションも低下していきました。
+このままではいけないと思い立ち、興味のあったセキュリティやAWSの学習を始めました。
+AWSでは2つの資格を取得し、その後、再び高度試験に挑むために選んだのが「安全確保支援士試験」です。
+ただ、この試験も簡単ではなく、令和7年春期で5回目の受験となりました。
+今回も合格は難しそうですが、あきらめずに挑戦を続けていきます。
+合格には至っていないものの、文章を書くことへの抵抗が減り、仕事でも表現力が活かせるようになってきたのは、大きな成果だと感じています。
+このブログでは、技術の学び直し、資格試験への挑戦、そして進化著しいAI活用について発信していきます。
+中高年からでも再び技術に向き合い、成長していけることを、自分自身を通して証明していきたいと思います。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-22 00:00:00 +0000 UTC'>4月 22, 2025</span>&nbsp;·&nbsp;1 分</footer>
+  <a class="entry-link" aria-label="post link to はじめまして。中高年からの技術挑戦と資格学習ログを始めます" href="https://nullpointer-log.github.io/posts/first-post/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://nullpointer-log.github.io/">nullpointer-log</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+</body>
+
+</html>

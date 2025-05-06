@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>競技プログラミング | nullpointer-log</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://nullpointer-log.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nullpointer-log.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nullpointer-log.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nullpointer-log.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nullpointer-log.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nullpointer-log.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://nullpointer-log.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml">
+<link rel="alternate" hreflang="ja" href="https://nullpointer-log.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><script async defer data-domain="nullpointer-log.github.io"
+        src="https://plausible.io/js/plausible.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true });</script><meta property="og:url" content="https://nullpointer-log.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">
+  <meta property="og:site_name" content="nullpointer-log">
+  <meta property="og:title" content="競技プログラミング">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="競技プログラミング">
+<meta name="twitter:description" content="">
+
+</head>
+
+<body class="list" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nullpointer-log.github.io/" accesskey="h" title="nullpointer-log (Alt + H)">nullpointer-log</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://nullpointer-log.github.io/">ホーム</a>&nbsp;»&nbsp;<a href="https://nullpointer-log.github.io/tags/">Tags</a></div>
+  <h1>
+    競技プログラミング
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AtCoder Beginner Contest 404 振り返り
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>概要 2025年5月3日（土）21時から開催されたAtCoderコンテストに参加しました。
+結果は A・B問題の2完。ギリギリではありますが、茶色を維持しています。
+AtCoderには nullpointerlog という名前で参加しています。
+この記事では各問題の所感と反省点を振り返っておきます。
+A・B問題：なんとか2完 A問題 少し時間がかかりましたが、英小文字に対応するサイズ26のテーブルを作り、入力文字を消しこんでいく方針で解きました。
+解説にあるような2重ループの方が、よりシンプルに書けたかもしれません。
+B問題：マトリックスの回転 2次元配列を90度ずつ最大4回まで回転させ、それぞれの状態とTを比較して違いの数を求め、最小の操作回数を選ぶ問題。
+ロジックはすぐに思いつきましたが、90度・270度回転時のインデックス変換のコーディングと確認に少し時間がかかりました。
+こういった典型実装こそ、丁寧さが問われると実感しました。
+C問題：グラフ問題の落とし穴 問題文の要点は：
+各頂点が ちょうど2本の辺 を持ち それらが 1つのループ（一筆書き）として閉じているか 私は 「各点の次数が2なら、全体がループになっているはず」 と早合点して判定した結果、WA（Wrong Answer）が4回。
+結果的には、
+各点が2本ずつの辺を持っていても、**複数の閉路（ループ）**ができてしまえば「一筆書きで一周」にはならない。
+ということに、最後まで気が付きませんでした。
+作問者の罠に見事に引っかかりました。
+✅ 正解パターン（1つのループ） graph LR A1((1)) --- A2((2)) A2 --- A3((3)) A3 --- A4((4)) A4 --- A5((5)) A5 --- A6((6)) A6 --- A1 ❌ 失敗パターン（2つの独立したループ） graph LR A1((1)) --- A2((2)) A2 --- A3((3)) A3 --- A1 graph LR A4((4)) --- A5((5)) A5 --- A6((6)) A6 --- A4 D問題：整理はできたが実装に至らず C問題でWAが続き、手が止まったためD問題にも目を通しました。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-05-05 20:27:43 +0900 JST'>5月 5, 2025</span>&nbsp;·&nbsp;1 分</footer>
+  <a class="entry-link" aria-label="post link to AtCoder Beginner Contest 404 振り返り" href="https://nullpointer-log.github.io/posts/2025-05-05-atcoder-abc404/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://nullpointer-log.github.io/">nullpointer-log</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり | nullpointer-log</title>
+<meta name="keywords" content="安全確保支援士">
+<meta name="description" content="📝試験当日の所感（午前Ⅱ）
+自己採点の結果は18/25でした（正解率72%）。
+前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。
+しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。
+前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。
+印象に残った問題と気づき
+特に、間違った問題や、分からなかった問題について、記載します。
+問3 SHA-512/256の説明はどれか。
+正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」
+SHA-512/256は完全に初見でした。過去にも出題歴がないようです。
+SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。
+（SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）
+SHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。
+暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。
+FIPS PUB 180-4（SHA-512/256の定義）
+問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。
+正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」
+試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。
+ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。
+問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。
+正解： ウ「GOVERN」
+意味は「統治」。この問題も初出のようです。
+CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。
+Governが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。
+NIST CSF 2.0 公式サイト
+問13 IoC(Indicator of Compromise)に該当するものはどれか。
+正解： ウ「あるネットワーク機器のログに残されたC&amp;Cサーバとの通信履歴」
+Indicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。
+「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。
+問19 スパニングツリープロトコルの機能を説明したものはどれか。
+正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」
+スパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。
+平成27年秋にもほぼ同一の問題が出ており、重要項目です。
+この問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。
+問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。
+正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」
+私はGETメソッドの仕組みを誤解していました。
+リクエスト行は以下の3要素で構成されます：">
+<meta name="author" content="">
+<link rel="canonical" href="https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nullpointer-log.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nullpointer-log.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nullpointer-log.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nullpointer-log.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nullpointer-log.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ja" href="https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><script async defer data-domain="nullpointer-log.github.io"
+        src="https://plausible.io/js/plausible.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true });</script><meta property="og:url" content="https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/">
+  <meta property="og:site_name" content="nullpointer-log">
+  <meta property="og:title" content="令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり">
+  <meta property="og:description" content="📝試験当日の所感（午前Ⅱ） 自己採点の結果は18/25でした（正解率72%）。 前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。 しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。
+前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。
+印象に残った問題と気づき 特に、間違った問題や、分からなかった問題について、記載します。
+問3 SHA-512/256の説明はどれか。 正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」
+SHA-512/256は完全に初見でした。過去にも出題歴がないようです。 SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。 （SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）
+SHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。 暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。
+FIPS PUB 180-4（SHA-512/256の定義）
+問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。 正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」
+試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。 ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。
+問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。 正解： ウ「GOVERN」
+意味は「統治」。この問題も初出のようです。 CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。
+Governが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。
+NIST CSF 2.0 公式サイト
+問13 IoC(Indicator of Compromise)に該当するものはどれか。 正解： ウ「あるネットワーク機器のログに残されたC&amp;Cサーバとの通信履歴」
+Indicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。 「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。
+問19 スパニングツリープロトコルの機能を説明したものはどれか。 正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」
+スパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。 平成27年秋にもほぼ同一の問題が出ており、重要項目です。
+この問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。
+問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。 正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」
+私はGETメソッドの仕組みを誤解していました。 リクエスト行は以下の3要素で構成されます：">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-24T00:00:00+00:00">
+    <meta property="article:tag" content="安全確保支援士">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり">
+<meta name="twitter:description" content="📝試験当日の所感（午前Ⅱ）
+自己採点の結果は18/25でした（正解率72%）。
+前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。
+しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。
+前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。
+印象に残った問題と気づき
+特に、間違った問題や、分からなかった問題について、記載します。
+問3 SHA-512/256の説明はどれか。
+正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」
+SHA-512/256は完全に初見でした。過去にも出題歴がないようです。
+SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。
+（SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）
+SHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。
+暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。
+FIPS PUB 180-4（SHA-512/256の定義）
+問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。
+正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」
+試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。
+ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。
+問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。
+正解： ウ「GOVERN」
+意味は「統治」。この問題も初出のようです。
+CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。
+Governが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。
+NIST CSF 2.0 公式サイト
+問13 IoC(Indicator of Compromise)に該当するものはどれか。
+正解： ウ「あるネットワーク機器のログに残されたC&amp;Cサーバとの通信履歴」
+Indicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。
+「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。
+問19 スパニングツリープロトコルの機能を説明したものはどれか。
+正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」
+スパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。
+平成27年秋にもほぼ同一の問題が出ており、重要項目です。
+この問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。
+問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。
+正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」
+私はGETメソッドの仕組みを誤解していました。
+リクエスト行は以下の3要素で構成されます：">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://nullpointer-log.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり",
+      "item": "https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり",
+  "name": "令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり",
+  "description": "📝試験当日の所感（午前Ⅱ） 自己採点の結果は18/25でした（正解率72%）。 前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。 しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。\n前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。\n印象に残った問題と気づき 特に、間違った問題や、分からなかった問題について、記載します。\n問3 SHA-512/256の説明はどれか。 正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」\nSHA-512/256は完全に初見でした。過去にも出題歴がないようです。 SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。 （SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）\nSHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。 暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。\nFIPS PUB 180-4（SHA-512/256の定義）\n問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。 正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」\n試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。 ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。\n問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。 正解： ウ「GOVERN」\n意味は「統治」。この問題も初出のようです。 CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。\nGovernが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。\nNIST CSF 2.0 公式サイト\n問13 IoC(Indicator of Compromise)に該当するものはどれか。 正解： ウ「あるネットワーク機器のログに残されたC\u0026amp;Cサーバとの通信履歴」\nIndicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。 「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。\n問19 スパニングツリープロトコルの機能を説明したものはどれか。 正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」\nスパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。 平成27年秋にもほぼ同一の問題が出ており、重要項目です。\nこの問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。\n問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。 正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」\n私はGETメソッドの仕組みを誤解していました。 リクエスト行は以下の3要素で構成されます：\n",
+  "keywords": [
+    "安全確保支援士"
+  ],
+  "articleBody": "📝試験当日の所感（午前Ⅱ） 自己採点の結果は18/25でした（正解率72%）。 前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。 しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。\n前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。\n印象に残った問題と気づき 特に、間違った問題や、分からなかった問題について、記載します。\n問3 SHA-512/256の説明はどれか。 正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」\nSHA-512/256は完全に初見でした。過去にも出題歴がないようです。 SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。 （SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）\nSHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。 暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。\nFIPS PUB 180-4（SHA-512/256の定義）\n問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。 正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」\n試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。 ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。\n問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。 正解： ウ「GOVERN」\n意味は「統治」。この問題も初出のようです。 CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。\nGovernが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。\nNIST CSF 2.0 公式サイト\n問13 IoC(Indicator of Compromise)に該当するものはどれか。 正解： ウ「あるネットワーク機器のログに残されたC\u0026Cサーバとの通信履歴」\nIndicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。 「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。\n問19 スパニングツリープロトコルの機能を説明したものはどれか。 正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」\nスパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。 平成27年秋にもほぼ同一の問題が出ており、重要項目です。\nこの問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。\n問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。 正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」\n私はGETメソッドの仕組みを誤解していました。 リクエスト行は以下の3要素で構成されます：\nHTTPメソッド（GET, POSTなど） リクエスト対象（URLなど） HTTPバージョン GET /search?q=example HTTP/1.1 HTMLフォームに入力されたデータは、リクエスト行のリクエスト対象に含まれます。 上の例だと、リクエスト対象：/search?q=example、入力されたデータ：q=example　となります。\n問22 静的解析ツールを導入するOSSはどれか？ 正解： エ「SonarQube」\nこれも初見問題で、過去の出題には見当たりませんでした。\nSonarQubeは、ソースコードを自動解析し、品質やセキュリティの問題を可視化できる**静的解析ツール（SAST）**です。 今回の午後問題にもSASTが出題されており、令和3年秋 午後Ⅰ 問1において「静的解析ツールでSQLインジェクションなどの脆弱性を早期に検出する」という記述があります。\nSonarQube OSSプロジェクトページ\nちなみに、私が答えとして選択したJenkinsとは、「継続的インテグレーション（CI）と継続的デリバリー（CD）の自動化を支援するためのオープンソースの自動化サーバー」でした。SonarQubeと組み合わせて使用することが多いようです。\n✨最後に 今回の試験では、従来の知識に加えて、最新技術や制度の理解が求められていると強く感じました。 過去問の繰り返しだけでは対応しきれない部分もあり、「なぜそうなるのか」を深掘りする学習の重要性を実感しました。\nこの振り返りをもとに、午後問題の対策や、次回の試験準備にもつなげていきたいと思います。 同じようにチャレンジされている皆さんの参考になれば幸いです！\n",
+  "wordCount" : "98",
+  "inLanguage": "ja",
+  "datePublished": "2025-04-24T00:00:00Z",
+  "dateModified": "2025-04-24T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "nullpointer-log",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nullpointer-log.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nullpointer-log.github.io/" accesskey="h" title="nullpointer-log (Alt + H)">nullpointer-log</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nullpointer-log.github.io/">ホーム</a>&nbsp;»&nbsp;<a href="https://nullpointer-log.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり
+    </h1>
+    <div class="post-meta"><span title='2025-04-24 00:00:00 +0000 UTC'>4月 24, 2025</span>&nbsp;·&nbsp;1 分
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目次</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%a9%a6%e9%a8%93%e5%bd%93%e6%97%a5%e3%81%ae%e6%89%80%e6%84%9f%e5%8d%88%e5%89%8d" aria-label="📝試験当日の所感（午前Ⅱ）">📝試験当日の所感（午前Ⅱ）</a></li>
+                <li>
+                    <a href="#%e5%8d%b0%e8%b1%a1%e3%81%ab%e6%ae%8b%e3%81%a3%e3%81%9f%e5%95%8f%e9%a1%8c%e3%81%a8%e6%b0%97%e3%81%a5%e3%81%8d" aria-label="印象に残った問題と気づき">印象に残った問題と気づき</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#%e5%95%8f3-sha-512256%e3%81%ae%e8%aa%ac%e6%98%8e%e3%81%af%e3%81%a9%e3%82%8c%e3%81%8b" aria-label="問3 SHA-512/256の説明はどれか。">問3 SHA-512/256の説明はどれか。</a></li>
+                <li>
+                    <a href="#%e5%95%8f9-%e5%85%ac%e9%96%8b%e9%8d%b5%e5%9f%ba%e7%9b%a4%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8bcpscertification-practice-statement%e3%81%af%e3%81%a9%e3%82%8c%e3%81%8b" aria-label="問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。">問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。</a></li>
+                <li>
+                    <a href="#%e5%95%8f12-nist-%e3%82%b5%e3%82%a4%e3%83%90%e3%83%bc%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%83%95%e3%83%ac%e3%83%bc%e3%83%a0%e3%83%af%e3%83%bc%e3%82%afcsf-20%e3%81%ae%e3%82%b3%e3%82%a2%e3%81%ab%e3%81%af%e5%85%ad%e3%81%a4%e3%81%82%e3%82%8bidentify-protect-detect-respond-recover%e3%81%a8%e3%81%82%e3%81%a8%e4%b8%80%e3%81%a4%e3%81%af%e3%81%a9%e3%82%8c%e3%81%8b" aria-label="問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。">問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。</a></li>
+                <li>
+                    <a href="#%e5%95%8f13-iocindicator-of-compromise%e3%81%ab%e8%a9%b2%e5%bd%93%e3%81%99%e3%82%8b%e3%82%82%e3%81%ae%e3%81%af%e3%81%a9%e3%82%8c%e3%81%8b" aria-label="問13 IoC(Indicator of Compromise)に該当するものはどれか。">問13 IoC(Indicator of Compromise)に該当するものはどれか。</a></li>
+                <li>
+                    <a href="#%e5%95%8f19-%e3%82%b9%e3%83%91%e3%83%8b%e3%83%b3%e3%82%b0%e3%83%84%e3%83%aa%e3%83%bc%e3%83%97%e3%83%ad%e3%83%88%e3%82%b3%e3%83%ab%e3%81%ae%e6%a9%9f%e8%83%bd%e3%82%92%e8%aa%ac%e6%98%8e%e3%81%97%e3%81%9f%e3%82%82%e3%81%ae%e3%81%af%e3%81%a9%e3%82%8c%e3%81%8b" aria-label="問19 スパニングツリープロトコルの機能を説明したものはどれか。">問19 スパニングツリープロトコルの機能を説明したものはどれか。</a></li>
+                <li>
+                    <a href="#%e5%95%8f20-html%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%85%a5%e5%8a%9b%e3%81%95%e3%82%8c%e3%81%9f%e3%83%87%e3%83%bc%e3%82%bf%e3%81%afhttp%e3%81%ae%e3%83%aa%e3%82%af%e3%82%a8%e3%82%b9%e3%83%88%e3%83%a1%e3%83%83%e3%82%bb%e3%83%bc%e3%82%b8%e3%81%ae%e3%81%a9%e3%81%93%e3%81%ab%e5%90%ab%e3%81%be%e3%82%8c%e3%82%8b%e3%81%8b" aria-label="問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。">問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。</a></li>
+                <li>
+                    <a href="#%e5%95%8f22-%e9%9d%99%e7%9a%84%e8%a7%a3%e6%9e%90%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e5%b0%8e%e5%85%a5%e3%81%99%e3%82%8boss%e3%81%af%e3%81%a9%e3%82%8c%e3%81%8b" aria-label="問22 静的解析ツールを導入するOSSはどれか？">問22 静的解析ツールを導入するOSSはどれか？</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#%e6%9c%80%e5%be%8c%e3%81%ab" aria-label="✨最後に">✨最後に</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="試験当日の所感午前">📝試験当日の所感（午前Ⅱ）<a hidden class="anchor" aria-hidden="true" href="#試験当日の所感午前">#</a></h1>
+<p>自己採点の結果は18/25でした（正解率72%）。
+前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。
+しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。</p>
+<p>前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。</p>
+<h1 id="印象に残った問題と気づき">印象に残った問題と気づき<a hidden class="anchor" aria-hidden="true" href="#印象に残った問題と気づき">#</a></h1>
+<p>特に、間違った問題や、分からなかった問題について、記載します。</p>
+<h3 id="問3-sha-512256の説明はどれか">問3 SHA-512/256の説明はどれか。<a hidden class="anchor" aria-hidden="true" href="#問3-sha-512256の説明はどれか">#</a></h3>
+<p><strong>正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」</strong></p>
+<p>SHA-512/256は完全に初見でした。過去にも出題歴がないようです。
+SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。
+（SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）</p>
+<p>SHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。
+暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。</p>
+<p><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">FIPS PUB 180-4（SHA-512/256の定義）</a></p>
+<h3 id="問9-公開鍵基盤におけるcpscertification-practice-statementはどれか">問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。<a hidden class="anchor" aria-hidden="true" href="#問9-公開鍵基盤におけるcpscertification-practice-statementはどれか">#</a></h3>
+<p><strong>正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」</strong></p>
+<p>試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。
+ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。</p>
+<h3 id="問12-nist-サイバーセキュリティフレームワークcsf-20のコアには六つあるidentify-protect-detect-respond-recoverとあと一つはどれか">問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。<a hidden class="anchor" aria-hidden="true" href="#問12-nist-サイバーセキュリティフレームワークcsf-20のコアには六つあるidentify-protect-detect-respond-recoverとあと一つはどれか">#</a></h3>
+<p><strong>正解： ウ「GOVERN」</strong></p>
+<p>意味は「統治」。この問題も初出のようです。
+CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。</p>
+<p>Governが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。</p>
+<p><a href="https://www.nist.gov/cyberframework">NIST CSF 2.0 公式サイト</a></p>
+<h3 id="問13-iocindicator-of-compromiseに該当するものはどれか">問13 IoC(Indicator of Compromise)に該当するものはどれか。<a hidden class="anchor" aria-hidden="true" href="#問13-iocindicator-of-compromiseに該当するものはどれか">#</a></h3>
+<p><strong>正解： ウ「あるネットワーク機器のログに残されたC&amp;Cサーバとの通信履歴」</strong></p>
+<p>Indicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。
+「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。</p>
+<h3 id="問19-スパニングツリープロトコルの機能を説明したものはどれか">問19 スパニングツリープロトコルの機能を説明したものはどれか。<a hidden class="anchor" aria-hidden="true" href="#問19-スパニングツリープロトコルの機能を説明したものはどれか">#</a></h3>
+<p><strong>正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」</strong></p>
+<p>スパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。
+平成27年秋にもほぼ同一の問題が出ており、重要項目です。</p>
+<p>この問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。</p>
+<h3 id="問20-htmlフォームに入力されたデータはhttpのリクエストメッセージのどこに含まれるか">問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。<a hidden class="anchor" aria-hidden="true" href="#問20-htmlフォームに入力されたデータはhttpのリクエストメッセージのどこに含まれるか">#</a></h3>
+<p><strong>正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」</strong></p>
+<p>私はGETメソッドの仕組みを誤解していました。
+リクエスト行は以下の3要素で構成されます：</p>
+<ul>
+<li>HTTPメソッド（GET, POSTなど）</li>
+<li>リクエスト対象（URLなど）</li>
+<li>HTTPバージョン</li>
+</ul>
+<pre tabindex="0"><code>GET /search?q=example HTTP/1.1
+</code></pre><p>HTMLフォームに入力されたデータは、リクエスト行のリクエスト対象に含まれます。
+上の例だと、リクエスト対象：/search?q=example、入力されたデータ：q=example　となります。</p>
+<h3 id="問22-静的解析ツールを導入するossはどれか">問22 静的解析ツールを導入するOSSはどれか？<a hidden class="anchor" aria-hidden="true" href="#問22-静的解析ツールを導入するossはどれか">#</a></h3>
+<p><strong>正解： エ「SonarQube」</strong></p>
+<p>これも初見問題で、過去の出題には見当たりませんでした。</p>
+<p>SonarQubeは、ソースコードを自動解析し、品質やセキュリティの問題を可視化できる**静的解析ツール（SAST）**です。
+今回の午後問題にもSASTが出題されており、令和3年秋 午後Ⅰ 問1において「静的解析ツールでSQLインジェクションなどの脆弱性を早期に検出する」という記述があります。</p>
+<p><a href="https://www.sonarsource.com/products/sonarqube/">SonarQube OSSプロジェクトページ</a></p>
+<p>ちなみに、私が答えとして選択したJenkinsとは、「継続的インテグレーション（CI）と継続的デリバリー（CD）の自動化を支援するためのオープンソースの自動化サーバー」でした。SonarQubeと組み合わせて使用することが多いようです。</p>
+<h1 id="最後に">✨最後に<a hidden class="anchor" aria-hidden="true" href="#最後に">#</a></h1>
+<p>今回の試験では、従来の知識に加えて、最新技術や制度の理解が求められていると強く感じました。
+過去問の繰り返しだけでは対応しきれない部分もあり、「なぜそうなるのか」を深掘りする学習の重要性を実感しました。</p>
+<p><strong>この振り返りをもとに、午後問題の対策や、次回の試験準備にもつなげていきたいと思います。</strong>
+同じようにチャレンジされている皆さんの参考になれば幸いです！</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nullpointer-log.github.io/tags/%E5%AE%89%E5%85%A8%E7%A2%BA%E4%BF%9D%E6%94%AF%E6%8F%B4%E5%A3%AB/">安全確保支援士</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://nullpointer-log.github.io/posts/2025-05-05-atcoder-abc404/">
+    <span class="title">« 前へ</span>
+    <br>
+    <span>AtCoder Beginner Contest 404 振り返り</span>
+  </a>
+  <a class="next" href="https://nullpointer-log.github.io/posts/first-post/">
+    <span class="title">次へ »</span>
+    <br>
+    <span>はじめまして。中高年からの技術挑戦と資格学習ログを始めます</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://nullpointer-log.github.io/">nullpointer-log</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'コピー';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'コピーされました!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'コピー';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on nullpointer-log</title>
+    <link>https://nullpointer-log.github.io/posts/</link>
+    <description>Recent content in Posts on nullpointer-log</description>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 05 May 2025 20:27:43 +0900</lastBuildDate>
+    <atom:link href="https://nullpointer-log.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AtCoder Beginner Contest 404 振り返り</title>
+      <link>https://nullpointer-log.github.io/posts/2025-05-05-atcoder-abc404/</link>
+      <pubDate>Mon, 05 May 2025 20:27:43 +0900</pubDate>
+      <guid>https://nullpointer-log.github.io/posts/2025-05-05-atcoder-abc404/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;2025年5月3日（土）21時から開催されたAtCoderコンテストに参加しました。&lt;br&gt;
+結果は &lt;strong&gt;A・B問題の2完&lt;/strong&gt;。ギリギリではありますが、&lt;strong&gt;茶色を維持&lt;/strong&gt;しています。&lt;/p&gt;
+&lt;p&gt;AtCoderには &lt;a href=&#34;https://atcoder.jp/users/nullpointerlog&#34;&gt;&lt;code&gt;nullpointerlog&lt;/code&gt;&lt;/a&gt; という名前で参加しています。&lt;br&gt;
+この記事では各問題の所感と反省点を振り返っておきます。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ab問題なんとか2完&#34;&gt;A・B問題：なんとか2完&lt;/h2&gt;
+&lt;h3 id=&#34;a問題&#34;&gt;A問題&lt;/h3&gt;
+&lt;p&gt;少し時間がかかりましたが、英小文字に対応するサイズ26のテーブルを作り、入力文字を消しこんでいく方針で解きました。&lt;br&gt;
+解説にあるような2重ループの方が、よりシンプルに書けたかもしれません。&lt;/p&gt;
+&lt;h3 id=&#34;b問題マトリックスの回転&#34;&gt;B問題：マトリックスの回転&lt;/h3&gt;
+&lt;p&gt;2次元配列を90度ずつ最大4回まで回転させ、それぞれの状態とTを比較して違いの数を求め、最小の操作回数を選ぶ問題。&lt;br&gt;
+ロジックはすぐに思いつきましたが、90度・270度回転時のインデックス変換のコーディングと確認に少し時間がかかりました。&lt;br&gt;
+こういった典型実装こそ、丁寧さが問われると実感しました。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;c問題グラフ問題の落とし穴&#34;&gt;C問題：グラフ問題の落とし穴&lt;/h2&gt;
+&lt;p&gt;問題文の要点は：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;各頂点が &lt;strong&gt;ちょうど2本の辺&lt;/strong&gt; を持ち&lt;/li&gt;
+&lt;li&gt;それらが &lt;strong&gt;1つのループ（一筆書き）として閉じているか&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;私は &lt;strong&gt;「各点の次数が2なら、全体がループになっているはず」&lt;/strong&gt; と早合点して判定した結果、WA（Wrong Answer）が4回。&lt;/p&gt;
+&lt;p&gt;結果的には、&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;各点が2本ずつの辺を持っていても、**複数の閉路（ループ）**ができてしまえば「一筆書きで一周」にはならない。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;ということに、最後まで気が付きませんでした。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作問者の罠に見事に引っかかりました。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-正解パターン1つのループ&#34;&gt;✅ 正解パターン（1つのループ）&lt;/h3&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+  
+graph LR
+    A1((1)) --- A2((2))
+    A2 --- A3((3))
+    A3 --- A4((4))
+    A4 --- A5((5))
+    A5 --- A6((6))
+    A6 --- A1
+
+  &lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;-失敗パターン2つの独立したループ&#34;&gt;❌ 失敗パターン（2つの独立したループ）&lt;/h3&gt;
+&lt;div style=&#34;display: flex; gap: 0px;&#34;&gt;
+&lt;div style=&#34;flex: 1; min-width: 300px;&#34;&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+  
+graph LR
+    A1((1)) --- A2((2))
+    A2 --- A3((3))
+    A3 --- A1
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div style=&#34;flex: 1; min-width: 300px;&#34;&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+  
+graph LR
+    A4((4)) --- A5((5))
+    A5 --- A6((6))
+    A6 --- A4
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;d問題整理はできたが実装に至らず&#34;&gt;D問題：整理はできたが実装に至らず&lt;/h2&gt;
+&lt;p&gt;C問題でWAが続き、手が止まったためD問題にも目を通しました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>令和7年春期 安全確保支援士試験 午前問題の結果とふりかえり</title>
+      <link>https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://nullpointer-log.github.io/posts/2025-04-24-security-r7s_am2/</guid>
+      <description>&lt;h1 id=&#34;試験当日の所感午前&#34;&gt;📝試験当日の所感（午前Ⅱ）&lt;/h1&gt;
+&lt;p&gt;自己採点の結果は18/25でした（正解率72%）。
+前半は午前Ⅱの過去問に出たものも多く、早いペースで解き進めていました。
+しかし後半は自信がなくなり、最終的に合格点の6割に達しているかは不安でした。&lt;/p&gt;
+&lt;p&gt;前日に令和5年秋～令和6年秋までの3回分の過去問を解いており、正答率は9割近く取れていたので何とかなるかと思っていましたが、類似問題でも難易度が上がっていたように感じます。&lt;/p&gt;
+&lt;h1 id=&#34;印象に残った問題と気づき&#34;&gt;印象に残った問題と気づき&lt;/h1&gt;
+&lt;p&gt;特に、間違った問題や、分からなかった問題について、記載します。&lt;/p&gt;
+&lt;h3 id=&#34;問3-sha-512256の説明はどれか&#34;&gt;問3 SHA-512/256の説明はどれか。&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;正解： ウ「入力データにSHA-512に基づいたハッシュ関数を1回適用し、512ビットの値を出力した後、256ビットに切り詰めて出力する。」&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;SHA-512/256は完全に初見でした。過去にも出題歴がないようです。
+SHA-512/256は、「推奨候補暗号リスト」に挙げられているハッシュ関数6種のうちの1つです。
+（SHA-512/256、SHA3-256、SHA3-384、SHA3-512、SHAKE128、SHAKE256）&lt;/p&gt;
+&lt;p&gt;SHA-512/256の仕様はFIPS PUB 180-4の6.7に記載されており、「256ビットに切り詰めて出力する」と明記されています。これはあまり知られていない仕様ではないかと思います。
+暗号強度を上げるためにこのような仕様になっているようですが、なぜ暗号強度が上がるかが気になります。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf&#34;&gt;FIPS PUB 180-4（SHA-512/256の定義）&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;問9-公開鍵基盤におけるcpscertification-practice-statementはどれか&#34;&gt;問9 公開鍵基盤におけるCPS（Certification Practice Statement）はどれか。&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;正解： ウ「認証局の認証業務の運用などに関する詳細を規定した文章」&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;試験中、「Practice＝練習？」と考え、「どれを選べばいいのか」と悩みました。
+ここでの「Practice」は「業務」を意味しており、Certification Practice は「認証業務」と訳せれば正解できた問題でした。&lt;/p&gt;
+&lt;h3 id=&#34;問12-nist-サイバーセキュリティフレームワークcsf-20のコアには六つあるidentify-protect-detect-respond-recoverとあと一つはどれか&#34;&gt;問12 NIST サイバーセキュリティフレームワーク(CSF) 2.0のコアには六つある。IDENTIFY, PROTECT, DETECT, RESPOND, RECOVERと、あと一つはどれか。&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;正解： ウ「GOVERN」&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;意味は「統治」。この問題も初出のようです。
+CSF1.0ではコア機能は5つでしたが、2024年に発表されたCSF2.0で「Govern（統治）」が追加されました。&lt;/p&gt;
+&lt;p&gt;Governが追加された理由は、サイバーセキュリティが経営課題に格上げされたことを受け、CSFに統治の考え方が必要になったためと思われます。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.nist.gov/cyberframework&#34;&gt;NIST CSF 2.0 公式サイト&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;問13-iocindicator-of-compromiseに該当するものはどれか&#34;&gt;問13 IoC(Indicator of Compromise)に該当するものはどれか。&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;正解： ウ「あるネットワーク機器のログに残されたC&amp;amp;Cサーバとの通信履歴」&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Indicator of Compromiseは「侵入の痕跡」と訳せれば正解に近づけました。
+「Indicator＝表示装置」と反射的に考えてしまいがちですが、「指標」「兆候」「兆し」なども意味します。&lt;/p&gt;
+&lt;h3 id=&#34;問19-スパニングツリープロトコルの機能を説明したものはどれか&#34;&gt;問19 スパニングツリープロトコルの機能を説明したものはどれか。&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;正解： エ「複数のブリッジ間で情報を交換し合い、ループ発生の検出や障害発生時の迂回ルート決定を行う。」&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;スパニングツリープロトコル（STP）は令和5年春、令和2年秋にも出題されており、頻出テーマです。
+平成27年秋にもほぼ同一の問題が出ており、重要項目です。&lt;/p&gt;
+&lt;p&gt;この問題を通じて、STPがレイヤ2でループを防ぐための重要なプロトコルであることを再確認しました。&lt;/p&gt;
+&lt;h3 id=&#34;問20-htmlフォームに入力されたデータはhttpのリクエストメッセージのどこに含まれるか&#34;&gt;問20 HTMLフォームに入力されたデータはHTTPのリクエストメッセージのどこに含まれるか。&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;正解： イ「GETメソッドが使用される場合：リクエスト行、POSTメソッドが使用される場合：メッセージボディ」&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;私はGETメソッドの仕組みを誤解していました。
+リクエスト行は以下の3要素で構成されます：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>はじめまして。中高年からの技術挑戦と資格学習ログを始めます</title>
+      <link>https://nullpointer-log.github.io/posts/first-post/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://nullpointer-log.github.io/posts/first-post/</guid>
+      <description>&lt;p&gt;資格試験の勉強を続けていると、どうしてもモチベーションが落ちる時期があります。&lt;br&gt;
+このブログは、そんな自分を奮い立たせるため、そして同じように資格試験に挑戦している方の励みになればと思い、立ち上げました。&lt;br&gt;
+「せっかく努力しているなら、その過程を発信してみたい」――そんな思いも込めています。&lt;/p&gt;
+&lt;p&gt;私は長年、組み込み系のソフトウェアエンジニアとして働いてきました。&lt;br&gt;
+技術に向き合うのは好きでしたが、大きな成果を出せた実感はなく、管理職試験にも通らず、与えられた仕事をこなす日々が続きました。&lt;br&gt;
+年齢を重ねるにつれ、「出世もできない」「自信も持てない」と感じることが増えていきました。&lt;/p&gt;
+&lt;p&gt;そんな中で気づいたのが、「自分には伝える力、つまり文章力が足りないのではないか」ということです。&lt;br&gt;
+それを克服する手段として選んだのが、高度情報処理技術者試験への挑戦でした。&lt;br&gt;
+努力は続けてきましたが、どの試験もあと一歩のところでつまずき、特に午後Ⅱでの不合格が続いています。&lt;/p&gt;
+&lt;p&gt;さらにコロナ禍でリモートワークが増えたことで、仕事へのモチベーションも低下していきました。&lt;br&gt;
+このままではいけないと思い立ち、興味のあったセキュリティやAWSの学習を始めました。&lt;br&gt;
+AWSでは2つの資格を取得し、その後、再び高度試験に挑むために選んだのが「安全確保支援士試験」です。&lt;/p&gt;
+&lt;p&gt;ただ、この試験も簡単ではなく、&lt;strong&gt;令和7年春期で5回目の受験&lt;/strong&gt;となりました。&lt;br&gt;
+今回も合格は難しそうですが、あきらめずに挑戦を続けていきます。&lt;/p&gt;
+&lt;p&gt;合格には至っていないものの、文章を書くことへの抵抗が減り、仕事でも表現力が活かせるようになってきたのは、大きな成果だと感じています。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;このブログでは、技術の学び直し、資格試験への挑戦、そして進化著しいAI活用について発信していきます。&lt;br&gt;
+中高年からでも再び技術に向き合い、成長していけることを、自分自身を通して証明していきたいと思います。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

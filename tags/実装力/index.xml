@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>実装力 on nullpointer-log</title>
+    <link>https://nullpointer-log.github.io/tags/%E5%AE%9F%E8%A3%85%E5%8A%9B/</link>
+    <description>Recent content in 実装力 on nullpointer-log</description>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 05 May 2025 20:27:43 +0900</lastBuildDate>
+    <atom:link href="https://nullpointer-log.github.io/tags/%E5%AE%9F%E8%A3%85%E5%8A%9B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AtCoder Beginner Contest 404 振り返り</title>
+      <link>https://nullpointer-log.github.io/posts/2025-05-05-atcoder-abc404/</link>
+      <pubDate>Mon, 05 May 2025 20:27:43 +0900</pubDate>
+      <guid>https://nullpointer-log.github.io/posts/2025-05-05-atcoder-abc404/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;2025年5月3日（土）21時から開催されたAtCoderコンテストに参加しました。&lt;br&gt;
+結果は &lt;strong&gt;A・B問題の2完&lt;/strong&gt;。ギリギリではありますが、&lt;strong&gt;茶色を維持&lt;/strong&gt;しています。&lt;/p&gt;
+&lt;p&gt;AtCoderには &lt;a href=&#34;https://atcoder.jp/users/nullpointerlog&#34;&gt;&lt;code&gt;nullpointerlog&lt;/code&gt;&lt;/a&gt; という名前で参加しています。&lt;br&gt;
+この記事では各問題の所感と反省点を振り返っておきます。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ab問題なんとか2完&#34;&gt;A・B問題：なんとか2完&lt;/h2&gt;
+&lt;h3 id=&#34;a問題&#34;&gt;A問題&lt;/h3&gt;
+&lt;p&gt;少し時間がかかりましたが、英小文字に対応するサイズ26のテーブルを作り、入力文字を消しこんでいく方針で解きました。&lt;br&gt;
+解説にあるような2重ループの方が、よりシンプルに書けたかもしれません。&lt;/p&gt;
+&lt;h3 id=&#34;b問題マトリックスの回転&#34;&gt;B問題：マトリックスの回転&lt;/h3&gt;
+&lt;p&gt;2次元配列を90度ずつ最大4回まで回転させ、それぞれの状態とTを比較して違いの数を求め、最小の操作回数を選ぶ問題。&lt;br&gt;
+ロジックはすぐに思いつきましたが、90度・270度回転時のインデックス変換のコーディングと確認に少し時間がかかりました。&lt;br&gt;
+こういった典型実装こそ、丁寧さが問われると実感しました。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;c問題グラフ問題の落とし穴&#34;&gt;C問題：グラフ問題の落とし穴&lt;/h2&gt;
+&lt;p&gt;問題文の要点は：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;各頂点が &lt;strong&gt;ちょうど2本の辺&lt;/strong&gt; を持ち&lt;/li&gt;
+&lt;li&gt;それらが &lt;strong&gt;1つのループ（一筆書き）として閉じているか&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;私は &lt;strong&gt;「各点の次数が2なら、全体がループになっているはず」&lt;/strong&gt; と早合点して判定した結果、WA（Wrong Answer）が4回。&lt;/p&gt;
+&lt;p&gt;結果的には、&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;各点が2本ずつの辺を持っていても、**複数の閉路（ループ）**ができてしまえば「一筆書きで一周」にはならない。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;ということに、最後まで気が付きませんでした。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作問者の罠に見事に引っかかりました。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-正解パターン1つのループ&#34;&gt;✅ 正解パターン（1つのループ）&lt;/h3&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+  
+graph LR
+    A1((1)) --- A2((2))
+    A2 --- A3((3))
+    A3 --- A4((4))
+    A4 --- A5((5))
+    A5 --- A6((6))
+    A6 --- A1
+
+  &lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;-失敗パターン2つの独立したループ&#34;&gt;❌ 失敗パターン（2つの独立したループ）&lt;/h3&gt;
+&lt;div style=&#34;display: flex; gap: 0px;&#34;&gt;
+&lt;div style=&#34;flex: 1; min-width: 300px;&#34;&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+  
+graph LR
+    A1((1)) --- A2((2))
+    A2 --- A3((3))
+    A3 --- A1
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div style=&#34;flex: 1; min-width: 300px;&#34;&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+  
+graph LR
+    A4((4)) --- A5((5))
+    A5 --- A6((6))
+    A6 --- A4
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;d問題整理はできたが実装に至らず&#34;&gt;D問題：整理はできたが実装に至らず&lt;/h2&gt;
+&lt;p&gt;C問題でWAが続き、手が止まったためD問題にも目を通しました。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
