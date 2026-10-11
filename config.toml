@@ -1,0 +1,40 @@
+baseURL = 'https://nullpointer-log.github.io/'
+languageCode = "ja"
+defaultContentLanguage = "ja"  # デフォルト言語を日本語に
+title = 'nullpointer-log'
+theme = 'PaperMod'
+
+[params]
+    description = "組み込みソフトウェア、Embedded Linux、RTOS、IPC、Python、画像処理、AI活用に関する技術ブログ。設計・実装・デバッグ・技術検証の記録を公開しています。"
+    homeInfoParams = {Title = "nullpointer-log | Engineering Notes", Content = "組み込みソフトウェア開発を中心に、Embedded Linux、RTOS、IPC、Python、画像処理、AIを活用したソフトウェア開発について、設計・実装・検証の記録を公開しています。"}
+
+  socialIcons = [
+    { name = "github", url = "https://github.com/nullpointer-log" }
+  ]
+
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  ShowPostListThumbnail = true
+  FuseOpts = { isCaseSensitive = false, minMatchCharLength = 2, shouldSort = true }
+  ShowSearch = true
+  defaultTheme = "light"     # 常にライト
+
+  # ユーザーによるテーマ切り替えボタンを非表示にする
+  disableThemeToggle = true
+
+  [params.assets]
+    disableFingerprinting = true
+    customCSS = ["/css/custom.css"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML", "RSS"]
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
