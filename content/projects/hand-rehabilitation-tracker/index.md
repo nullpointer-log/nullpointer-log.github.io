@@ -9,71 +9,53 @@ ShowPostNavLinks: false
 
 **個人開発・検証中 / Python・Windowsアプリケーション**
 
-カメラ映像から手指ランドマークと関節角度を推定し、運動の記録・可視化を行う試作です。Codexを開発支援に使用しています。
+カメラ映像から手のランドマークを推定し、指・手首・手の回旋に関する動きを記録・可視化するPythonの試作アプリです。Codexを開発支援に使用しています。
+
+ソースコードは現在、GitHubのPrivateリポジトリで非公開管理しています。一般公開は今後検討します。
+
+### 目的
+
+日々の運動時に、カメラ画像から得られる角度や動作回数を記録し、本人が経過を振り返るための技術検証を目的としています。医療関係者には、画像ベースの簡易な運動記録・可視化の試作例としてご覧いただけます。
+
+### 測定できる内容
+
+アプリ起動時に、次の3モードから選択します。測定対象の手は右手が初期設定で、Rキーで左右を切り替えられます。
+
+| モード | 記録内容 |
+| --- | --- |
+| 指の曲げ伸ばし | 薬指の3関節の推定角度、動作回数、時系列・角度分布。同一フレームで3角度がそろったときの合計最小値と、その画面画像を保存します。第三関節は手首を基準とした近似値です。 |
+| 手首の曲げ伸ばし | 手首から薬指付け根、手首から肘への2線が画像平面で作る角度を記録します。まっすぐを0°とした符号付き角度で、プラス側・マイナス側の動作を一組として数え、確定した極値を画像とグラフに残します。肘の検出には姿勢推定モデルが必要です。 |
+| 回旋 | 既定方式では手首から親指MCP（親指と手のひらの境目）への画像上の方向を使い、上向きの基準からの変化を回旋の近似値として記録します。基準位置の保持後、内側・外側を交互に行い、両方向の一組を回数として数えます。 |
+
+測定値はカメラ画像とランドマーク推定に基づく参考値です。特に手首角度は画像平面上の値、回旋は画像方向の近似値であり、解剖学的な三次元関節角度ではありません。
+
+### レポートとメール
+
+測定終了時に、実施時間、動作回数、角度指標・度数分布、各モードで記録された極値画像などをまとめたA4・2ページのPDFレポートを端末内に作成します。メール送信は利用者が送信画面で選んだ場合に行い、添付するのはPDFのみです。画像やCSVをメールに添付する仕様ではありません。認証設定・通信環境により送信できない場合があります。
 
 ### アプリの処理の流れ
 
-<figure aria-label="カメラ入力、手指ランドマーク検出、角度解析、表示と記録の処理フロー" style="margin:24px 0;padding:20px;border:2px solid #64748b;border-radius:12px;background:#f8fafc;color:#172033;text-align:center">
-<div style="padding:12px;border:2px solid #2563eb;border-radius:8px;background:#eff6ff;color:#172033"><strong>① カメラ映像を取得</strong><br><small>OpenCVで手の動きをリアルタイムに取り込む</small></div>
-<div aria-hidden="true" style="padding:6px">↓</div>
-<div style="padding:12px;border:2px solid #7c3aed;border-radius:8px;background:#f5f3ff;color:#172033"><strong>② 手指のランドマークを検出</strong><br><small>MediaPipeで関節などの位置を推定</small></div>
-<div aria-hidden="true" style="padding:6px">↓</div>
-<div style="padding:12px;border:2px solid #0f766e;border-radius:8px;background:#f0fdfa;color:#172033"><strong>③ 薬指の関節角度・曲げ伸ばし回数を算出</strong><br><small>伸ばした状態は180°、直角は90°として角度を表示</small></div>
-<div aria-hidden="true" style="padding:6px">↓</div>
-<div style="display:flex;flex-wrap:wrap;gap:12px;text-align:left">
-<div style="flex:1 1 200px;padding:12px;border:2px solid #0284c7;border-radius:8px;background:#e0f2fe;color:#172033"><strong>画面で確認</strong><br><small>骨格・角度を映像に重ねて表示<br>現在値・最小値・回数を表示<br>時系列グラフで動きを確認</small></div>
-<div style="flex:1 1 200px;padding:12px;border:2px solid #b45309;border-radius:8px;background:#fffbeb;color:#172033"><strong>記録・レポート</strong><br><small>角度データをCSV保存<br>右手の角度合計が最小の画像を保存<br>日次の回数・角度分布を集計</small></div>
+<figure aria-label="測定からレポート作成までの処理" style="margin:24px 0;padding:20px;border:2px solid #64748b;border-radius:12px;background:#f8fafc;color:#172033">
+<div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;text-align:center">
+<div style="flex:1 1 145px;padding:14px;border:2px solid #2563eb;border-radius:8px;background:#eff6ff"><strong>カメラ入力</strong><br><small>映像を取り込み</small></div>
+<div aria-hidden="true" style="align-self:center">→</div>
+<div style="flex:1 1 145px;padding:14px;border:2px solid #7c3aed;border-radius:8px;background:#f5f3ff"><strong>ランドマーク推定</strong><br><small>手・指などの位置を推定</small></div>
+<div aria-hidden="true" style="align-self:center">→</div>
+<div style="flex:1 1 145px;padding:14px;border:2px solid #0f766e;border-radius:8px;background:#f0fdfa"><strong>モード別に計測</strong><br><small>角度・回数・極値を記録</small></div>
+<div aria-hidden="true" style="align-self:center">→</div>
+<div style="flex:1 1 145px;padding:14px;border:2px solid #b45309;border-radius:8px;background:#fffbeb"><strong>振り返り</strong><br><small>グラフ・PDFレポート</small></div>
 </div>
-<figcaption style="margin-top:14px;font-size:0.85em;color:#475569">処理の概略図です。実際のアプリ画面や測定結果ではありません。</figcaption>
+<figcaption style="margin-top:14px;font-size:0.85em;color:#475569">処理の概略です。角度は画像上の推定値で、臨床測定値ではありません。</figcaption>
 </figure>
 
-### 画面構成
+### 実装と検証状況
 
-![右手薬指の角度合計が最小になった時点の保存画面](/images/hand-rehabilitation-tracker/min-total-screen.jpg)
+Python、OpenCV、MediaPipeを用いたWindowsアプリです。角度データは端末内に記録し、画面上の時系列グラフとPDFで可視化します。自動テストでは角度計算、回数・集計処理、レポートやメール送信処理の一部を合成データ・模擬通信で確認しています。これらは実カメラによる精度検証や医療現場での評価を意味しません。
 
-- **左側**：背景をぼかしたカメラ映像に、手の骨格と薬指の各関節角度を重ねて表示します。
-- **右側**：関節角度の一覧と、左右の薬指の現在値・最小値・曲げ伸ばし回数を表示します。
-- **上部**：保存時の右手薬指3関節の角度と合計、開始からの経過時間を表示します。
+現在の制約として、推定結果は撮影角度、距離、照明、手や腕の遮蔽、ランドマーク検出状態に影響されます。第三関節は近似値、手首は画像平面上、回旋は画像方向を用いた推定です。臨床的な測定精度、再現性、医療上の有効性は検証されていません。
 
-実際の保存画面です。角度はAIによる推定値で、第三関節は手首を基準とする近似値です。画像内のカウント閾値は撮影時の設定（150° → 120° → 150°）であり、現在の仕様（160° → 140° → 160°）とは異なります。画面構成を説明する参考画像として掲載しています。
+**本アプリは技術検証目的の試作であり、医療上の診断・治療を目的としません。臨床的な測定精度および医療上の有効性は未検証です。**
 
-### 構成と実装内容
-
-- PythonによるWindows向け画像処理アプリケーション。
-- OpenCV・MediaPipeを使った手指ランドマーク解析と関節角度の推定。
-- 角度データのCSV記録、時系列グラフ、関節別回数・度数分布のレポートによる可視化。
-- 合成データと模擬通信を用いた自動テストの実施。
-- Codexを用いた実装・テスト・改善の開発支援。
-
-| 使用技術 | 用途 |
-| --- | --- |
-| Python / NumPy | 角度計算・集計・記録 |
-| OpenCV / MediaPipe | 画像取得・画像処理・骨格推定 |
-| Pillow / Tkinter | 日本語描画・結果確認画面 |
-| unittest / Git / Codex | テスト・変更管理・開発支援 |
-
-### 計測・記録の仕様
-
-| 項目 | 現行実装 |
-| --- | --- |
-| 角度 | 伸ばした状態180°、直角90°の内角。第三関節は手首を基準とする近似値 |
-| 回数 | 関節ごとに160°以上 → 140°以下 → 160°以上で1回。150°±10°のヒステリシスで境界付近の揺れによる重複カウントを抑制 |
-| 画面表示 | 左右の薬指の現在角度・最小角度・回数。Rキーで表示側の最小値・回数をリセット |
-| 測定全体の集計 | 右手薬指の関節別の最小角度・最大角度・回数を保存。Rキーによる表示リセットとは独立 |
-| 自動保存画像 | 同じフレームで右手薬指3関節が有効なとき、内角合計が最小の画像を保存。各関節の個別最小値を足したものではない |
-| グラフ・CSV | グラフは直近30秒。CSVは測定全体の右手薬指の角度を記録 |
-| 日次レポート | 保存済みの測定から関節別回数と角度の度数分布を集計。分布は検出サンプル数に基づく |
-
-角度はMediaPipeの3次元推定座標から求める内角です。画面は小数第1位で表示し、CSVと画像選択には小数第2位に丸めた値を使います。回数判定と表示側の最小値は丸める前の値を使うため、境界付近では表示上の丸め値だけでは判定を説明できない場合があります。`estimated_bend_deg`という内部項目名も、現行実装ではこの内角を保持します。
-
-自動保存は合計が前回の最小値を下回った場合だけ更新し、同じ値なら先の画像を残します。`min_total.jpg`には背景ぼかし・骨格・角度を描画済みの画面を、`min_total.json`にはその時点の角度・合計・時刻を保存します。関節別の最大値も集計しますが、最大合計時の画像は自動保存しません。
-
-### 検証範囲と制約
-
-Codexによる実装支援と自動テストを、開発者による実機・実運用確認とは区別しています。単体テストでは角度計算、ヒステリシスによる回数計算、同時刻の最小合計画像の選択、日次集計、メール内容・添付、OAuthコールバックと背景ぼかしを確認します。合成データと模擬通信を使用し、実カメラの認識精度、実Google認証、メール配送を保証しません。第三関節は手首を基準とした近似値です。
-
-**技術検証目的の試作であり、医療上の診断・治療を目的としません。** 背景ぼかしは匿名化を保証しません。掲載画像以外の撮影画像・実測データおよび認証情報は公開しません。
-
-ソースコードの公開リンクは現在掲載していません。
+撮影画像や測定記録は公開ページに掲載していません。ソースコードは現在非公開で管理しており、公開は今後検討します。
 
 [プロジェクト一覧](/projects/) · [実務経験](/experience/)
